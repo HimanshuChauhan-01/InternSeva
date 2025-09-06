@@ -14,17 +14,17 @@ const Logo_Info = ({ user }) => {
       <div className={`content-wrapper ${isVisible ? 'visible' : ''}`}>
         <div className="logo-section">
           <div className="logo-wrapper">
-            <svg className="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#4A90E2" />
-                  <stop offset="100%" stopColor="#6A5ACD" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#gradient)" d="M100,20 a80,80 0 1,0 0,160 a80,80 0 1,0 0,-160" />
-              <text x="100" y="90" textAnchor="middle" fontSize="24" fill="white" fontFamily="Arial, sans-serif" fontWeight="bold">IS</text>
-              <text x="100" y="125" textAnchor="middle" fontSize="14" fill="white" fontFamily="Arial, sans-serif">InternSeva</text>
-            </svg>
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3b2a" />
+      <stop offset="100%" stop-color="#27ae60" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#gradient)" d="M100,20 a80,80 0 1,0 0,160 a80,80 0 1,0 0,-160" />
+  <text x="100" y="90" text-anchor="middle" font-size="24" fill="white" font-family="Arial, sans-serif" font-weight="bold">IS</text>
+  <text x="100" y="125" text-anchor="middle" font-size="14" fill="white" font-family="Arial, sans-serif">InternSeva</text>
+</svg>
           </div>
         </div>
 

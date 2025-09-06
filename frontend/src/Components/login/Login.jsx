@@ -26,7 +26,7 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
       const data = await response.json();
       
       if (data.success) {
-        alert(data.message);
+        // alert(data.message);
         // Store token in localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user_id', data.user_id);

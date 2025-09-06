@@ -9,7 +9,7 @@
 }
 
 .footer {
-  background: linear-gradient(135deg, #1a2a6c, #2b5876);
+  background: linear-gradient(135deg, #0a5045, #1a7d56);
   color: white;
   padding: 50px 0 20px;
   margin-top: 50px;
@@ -41,7 +41,7 @@
   font-weight: 700;
   margin-bottom: 15px;
   line-height: 1.4;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(45deg, #4CAF50, #8BC34A);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -56,12 +56,12 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(45deg, #4CAF50, #8BC34A);
   border-radius: 3px;
 }
 
 .footer-description {
-  color: #c5cae9;
+  color: #d1e7dd;
   line-height: 1.6;
   margin-bottom: 25px;
   font-size: 15px;
@@ -85,7 +85,7 @@
 }
 
 .social-icons a:hover {
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(45deg, #4CAF50, #8BC34A);
   transform: translateY(-3px);
 }
 
@@ -104,7 +104,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: #4facfe;
+  background: #4CAF50;
   border-radius: 2px;
 }
 
@@ -122,7 +122,7 @@
 }
 
 .footer-column ul li a {
-  color: #c5cae9;
+  color: #d1e7dd;
   text-decoration: none;
   transition: color 0.3s ease;
   display: inline-block;
@@ -135,7 +135,7 @@
 }
 
 .view-all {
-  color: #4facfe !important;
+  color: #4CAF50 !important;
   font-weight: 600 !important;
 }
 
@@ -177,10 +177,10 @@
 
 .newsletter-form button {
   padding: 12px 25px;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(45deg, #4CAF50, #8BC34A);
   border: none;
   border-radius: 4px;
-  color: #1a2a6c;
+  color: white;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -208,7 +208,7 @@
 }
 
 .footer-links a {
-  color: #c5cae9;
+  color: #d1e7dd;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 14px;
@@ -230,7 +230,7 @@
 }
 
 .footer-bottom p {
-  color: #a5b4cb;
+  color: #a5d6a7;
   font-size: 14px;
   margin-top: 15px;
 }
