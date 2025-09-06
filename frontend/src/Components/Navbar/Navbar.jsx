@@ -69,7 +69,7 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
       <div className="nav-main">
         <div className="nav-container">
           <div className="nav-logo">
-            <span>InternSeva</span>
+            <span><img className='inter-logo' src="src\assets\InternSeva_Logo_2_SVG copy.svg" alt="" /></span>
           </div>
           
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>

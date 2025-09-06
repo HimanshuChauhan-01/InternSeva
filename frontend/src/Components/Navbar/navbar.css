@@ -19,48 +19,49 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 5%;
-  height: 40px;
+  padding: 4px 5%; /* reduced padding */
+  height: 35px; /* decreased height */
   background: linear-gradient(135deg, #1b5e20, #2e7d32);
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .nav-top-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .nav-top-left p {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
 }
 
 .nav-top-left img {
-  height: 25px;
-  margin-left: 10px;
+  height: 22px;
+  margin-left: 8px;
 }
 
 .nav-top-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .login-btn, .logout-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 4px 10px; /* slimmer buttons */
+  border-radius: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
+  font-size: 0.75rem;
 }
 
 .login-btn:hover, .logout-btn:hover {
@@ -70,11 +71,11 @@
 .user-menu {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .welcome-text {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
@@ -87,7 +88,7 @@
   border: none;
   color: white;
   cursor: pointer;
-  padding: 5px;
+  padding: 4px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -107,7 +108,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 10px 0;
-  min-width: 180px;
+  min-width: 160px;
   z-index: 1001;
   margin-top: 5px;
   animation: fadeIn 0.3s ease;
@@ -121,16 +122,16 @@
 .dropdown-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: none;
   border: none;
   text-align: left;
   cursor: pointer;
   transition: background 0.2s ease;
   color: #333;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .dropdown-item:hover {
@@ -138,7 +139,7 @@
 }
 
 .dropdown-item i {
-  width: 18px;
+  width: 16px;
   text-align: center;
 }
 
@@ -151,11 +152,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 8px 0; /* reduced padding for slim look */
 }
 
 .nav-logo {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #2e7d32;
 }
@@ -167,7 +168,7 @@
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 25px;
 }
 
 .nav-link {
@@ -176,7 +177,7 @@
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
-  padding: 5px 0;
+  padding: 4px 0;
 }
 
 .nav-link:hover {
@@ -202,23 +203,44 @@
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 4px;
+  gap: 3px;
 }
 
 .bar {
-  width: 25px;
-  height: 3px;
+  width: 22px;
+  height: 2.5px;
   background: #333;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
+.inter-logo {
+  height: auto;
+  width: 100%;
+  max-width: 23rem; /* same as before for large screens */
+  display: block;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .inter-logo {
+    max-width: 16rem; /* smaller for tablets & small laptops */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inter-logo {
+    max-width: 12rem; /* smaller for phones */
+  }
+}
+
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .nav-top {
     flex-direction: column;
-    gap: 10px;
-    padding: 10px 5%;
+    gap: 8px;
+    padding: 8px 5%;
+    height: auto;
   }
   
   .nav-top-left {
@@ -233,14 +255,14 @@
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 125px;
+    top: 110px;
     flex-direction: column;
     background: white;
     width: 100%;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    padding: 16px 0;
     z-index: 999;
   }
   
@@ -250,12 +272,12 @@
   
   .nav-links {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     width: 100%;
   }
   
   .nav-link {
-    padding: 12px 0;
+    padding: 10px 0;
     width: 100%;
     display: block;
   }
@@ -267,10 +289,10 @@
 
 @media screen and (max-width: 480px) {
   .nav-top-left p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   
   .nav-logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }
