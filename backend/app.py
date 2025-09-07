@@ -272,6 +272,16 @@ def update_profile(current_user):
         
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)}), 500
+    
+@app.route('/logout', methods=['POST'])
+@token_required
+def logout(current_user):
+    # With JWT, logout is typically handled client-side by removing the token
+    # This endpoint can be used for logging activities or blacklisting tokens if needed
+    return jsonify({
+        'success': True,
+        'message': 'Logged out successfully'
+    }), 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
