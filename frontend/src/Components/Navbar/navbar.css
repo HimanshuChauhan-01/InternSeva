@@ -39,8 +39,9 @@
 }
 
 .nav-top-left img {
-  height: 22px;
-  margin-left: 8px;
+  height: 80px;
+  width: 90px;
+  margin-left: 10px;
 }
 
 .nav-top-right {
@@ -152,14 +153,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0; /* reduced padding for slim look */
+  padding: 15px 0;
+  /* object-fit: contain; */
 }
 
 .nav-logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #2e7d32;
+  height: 50px;
 }
+.nav-logo img {
+  height: 100%; /* scale inside parent */
+  object-fit: contain;
+}
+
 
 .nav-menu {
   display: flex;
