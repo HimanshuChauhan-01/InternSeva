@@ -25,9 +25,9 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
     <div className="navbar-container">
       <div className="nav-top">
         <div className="nav-top-left">
+          <img src="src/assets/Digital-india-White-removebg-preview.svg" alt="india" />
           <p>Government of India</p>
           <p>Ministry of Information Technology</p>
-          <img src="src/assets/india-digi.svg" alt="india" />
         </div>
 
         <div className="nav-top-right">
@@ -69,7 +69,7 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
       <div className="nav-main">
         <div className="nav-container">
           <div className="nav-logo">
-            <span><img className='inter-logo' src="src\assets\InternSeva_Logo_2_SVG copy.svg" alt="" /></span>
+            <span><img className='inter-logo' src="src\assets\InternSeva_Logo_2_SVG.svg" alt="" /></span>
           </div>
           
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
