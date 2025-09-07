@@ -7,6 +7,8 @@ import TodoApp from '../Components/todo/TodoApp';
 import Todo_btn from '../Components/todo-btn/Todo_btn';
 import InternshipSearch from '../Components/FindUs/FindUs'
 import Marquee_page from '../Components/Marqueee/Marquee_page';
+import PastIntern from '../Components/Home/pastIntern';
+import InternSeva from '../Components/Home/home'
 // import Navbar from '../Components/Navbar/Navbar';
 const Home = ({user}) => {
   const [showTodo, setShowTodo] = useState(false);
@@ -21,8 +23,10 @@ const Home = ({user}) => {
       {/* <Navbar setShowLogin={setShowLogin} /> */}
       {/* <Img_mov /> */}
       <InternshipSearch/>
+      <InternSeva></InternSeva>
+      <PastIntern></PastIntern>
       <Marquee_page />
-      <Contact />
+      {/* <Contact /> */}
       <Last />
 
       {/* floating button */}

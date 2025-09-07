@@ -1,0 +1,279 @@
+.about-us-container {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background: #f8fdf8;
+}
+
+/* Background */
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8f5e8 0%, #d0ebd0 100%);
+  z-index: -1;
+}
+
+/* Main content band */
+.band {
+  background: rgba(255, 255, 255, 0.95);
+  color: #2c3e50;
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #28a745;
+  font-weight: 700;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #5a6268;
+}
+
+/* Cards layout */
+.cards {
+  margin-bottom: 60px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.row-top {
+  margin-bottom: 40px;
+}
+
+/* Individual cards */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  border: 2px solid #e8f5e8;
+  box-shadow: 0 5px 20px rgba(40, 167, 69, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+  border-color: #28a745;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.icon .material-icons {
+  color: white;
+  font-size: 24px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #28a745;
+}
+
+.card p {
+  color: #5a6268;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Services section */
+.services-section {
+  text-align: center;
+  padding: 40px;
+  background: #f0f9f0;
+  border-radius: 15px;
+  margin-top: 40px;
+  border: 2px solid #e8f5e8;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #28a745;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid #e8f5e8;
+  text-align: left;
+}
+
+.service-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+  border-color: #28a745;
+}
+
+.emoji-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.service-item .material-icons {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: #28a745;
+  min-width: 50px;
+  text-align: center;
+}
+
+.service-text h4 {
+  margin: 0 0 8px 0;
+  color: #28a745;
+  font-size: 1.3rem;
+}
+
+.service-text p {
+  margin: 0;
+  color: #5a6268;
+  line-height: 1.5;
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+  
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    min-width: 100%;
+  }
+  
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section p {
+    font-size: 1.1rem;
+  }
+  
+  .service-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .emoji-icon, .service-item .material-icons {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .services-section {
+    padding: 25px 15px;
+  }
+  
+  .service-item {
+    padding: 20px;
+  }
+  
+  .services-section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Material Icons font */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');

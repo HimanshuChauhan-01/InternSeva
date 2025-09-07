@@ -3,14 +3,38 @@ import './Login.css'
 
 const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
   const [currentState, setCurrentState] = useState("Login");
-  const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+  const [formData, setFormData] = useState({ 
+    username: "", 
+    email: "", 
+    password: "" 
+  });
+  const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear error when user starts typing
+    if (error) setError("");
+  };
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+    // Clear error when checkbox is checked
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate checkbox
+    if (!isChecked) {
+      setError("Please agree to the terms of use & privacy policy");
+      return;
+    }
+    
+    setIsLoading(true);
+    setError("");
 
     const url = currentState === "Login" ? "http://localhost:5000/login" : "http://localhost:5000/signup";
     
@@ -26,7 +50,6 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
       const data = await response.json();
       
       if (data.success) {
-        // alert(data.message);
         // Store token in localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user_id', data.user_id);
@@ -48,12 +71,20 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
           setShowProfile(true);
         }
       } else {
-        alert(data.message);
+        setError(data.message || "An error occurred. Please try again.");
       }
     } catch (error) {
-      alert("An error occurred. Please try again.");
+      setError("An error occurred. Please try again.");
       console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const switchMode = () => {
+    setCurrentState(currentState === "Login" ? "Sign Up" : "Login");
+    setError("");
+    setIsChecked(false);
   };
 
   return (
@@ -81,6 +112,7 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
                   onChange={handleChange}
                   autoComplete="username"
                   required 
+                  disabled={isLoading}
                 />
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -98,6 +130,7 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
                 onChange={handleChange}
                 autoComplete="email"
                 required 
+                disabled={isLoading}
               />
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -114,6 +147,7 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
                 onChange={handleChange}
                 autoComplete={currentState === "Login" ? "current-password" : "new-password"}
                 required 
+                disabled={isLoading}
               />
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -122,22 +156,49 @@ const LoginPopUp = ({ setShowLogin, setUser, setShowProfile }) => {
             </div>
           </div>
           
-          <button type="submit" className="login-submit-btn">
-            {currentState === "Sign Up" ? "Create Account" : "Login"}
+          {error && (
+            <div className="error-message">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>{error}</span>
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className={`login-submit-btn ${isLoading ? 'loading' : ''}`}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <>
+                <span className="submit-spinner"></span>
+                {currentState === "Sign Up" ? "Creating Account..." : "Logging in..."}
+              </>
+            ) : (
+              currentState === "Sign Up" ? "Create Account" : "Login"
+            )}
           </button>
           
           <div className="login-popup-condition">
             <label className="checkbox-container">
-              <input type="checkbox" required />
-              <span className="checkmark" required></span>
+              <input 
+                type="checkbox" 
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                disabled={isLoading}
+              />
+              <span className={`checkmark ${isChecked ? 'checked' : ''}`}></span>
               <p>By continuing, I agree to the terms of use & privacy policy</p>
             </label>
           </div>
           
           <div className="login-popup-switch">
             {currentState === "Login"
-              ? <p>Create a new Account? <span onClick={() => setCurrentState("Sign Up")}>Click Here</span></p>
-              : <p>Already have an Account? <span onClick={() => setCurrentState("Login")}>Login Here</span></p>
+              ? <p>Create a new Account? <span onClick={isLoading ? null : switchMode}>Click Here</span></p>
+              : <p>Already have an Account? <span onClick={isLoading ? null : switchMode}>Login Here</span></p>
             }
           </div>
         </form>
