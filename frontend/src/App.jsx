@@ -11,6 +11,7 @@ import AboutUs from './Components/aboutus/aboutus';
 import Contact from './Components/contact/Contact';
 import Interseva from './Components/Home/home';
 import PastIntern from './Components/Home/pastIntern';
+import Recommendation from './Components/recommend/recommend';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -62,6 +63,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/home" element={<Interseva />} />
         <Route path="/pastIntern" element={<PastIntern />} />
+        <Route path="/recommendation" element={< Recommendation/>} />
         <Route 
           path='/edit-profile' 
           element={

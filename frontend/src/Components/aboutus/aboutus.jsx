@@ -109,7 +109,7 @@ const AboutUs = () => {
               </div>  
             </div>
             <button className="contact-btn">
-                 <a href="/contact" className="nav-link">
+                 <a href="/contact" className="navs-link">
                     Contact Us
                  </a>
                

@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import './Navbar.css';
-import defaultProfile from '/src/assets/profile-user.png';
-import indiaLogo from '/src/assets/india-digi.svg';
-import internsevaLogo from '/src/assets/InternSeva_Logo_2_SVG copy.svg';
+// Import images (adjust paths as needed)
+import indiaLogo from '../../assets/india-digi.svg';
+import internsevaLogo from '../../assets/InternSeva_Logo_2_SVG.svg';
+import defaultProfile from '../../assets/profile-user.png';
 
 const Navbar = ({ user, setUser, setShowLogin }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('home');
+  const profileRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -29,11 +47,18 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
       e.preventDefault();
       setShowLogin(true);
     }
+    setActiveMenu('profile');
+  };
+
+  const handleMenuClick = (menuItem) => {
+    setActiveMenu(menuItem);
+    setIsMenuOpen(false);
   };
 
   const handleFeedbackClick = (e) => {
-    // Add any feedback-specific logic here
     console.log("Feedback clicked");
+    setActiveMenu('feedback');
+    // Add navigation logic here if needed
   };
 
   return (
@@ -41,47 +66,59 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
       {/* --------- TOP SECTION ---------- */}
       <div className="nav-top">
         <div className="nav-top-left">
+          <img src={indiaLogo} alt="India Government Logo" />
           <p>Government of India</p>
           <p>Ministry of Information Technology</p>
-          <img src={indiaLogo} alt="india" />
         </div>
 
         <div className="nav-top-right">
           {user ? (
-            <div className="user-menu">
+            <div className="user-menu" ref={profileRef}>
               <span className="welcome-text">Welcome, {user.username}</span>
               <div className="profile-container">
-                <button className="profile-icon-btn" onClick={toggleProfile}>
+                <button 
+                  className="profile-icon-btn" 
+                  onClick={toggleProfile}
+                  aria-expanded={isProfileOpen}
+                  aria-label="User profile menu"
+                >
                   <img
-                    src={user?.profileImage || defaultProfile}
+                    src={user.profileImage || defaultProfile}
                     alt="Profile"
                     className="nav-profile-img"
+                    onError={(e) => {
+                      e.target.src = defaultProfile;
+                    }}
                   />
                 </button>
 
                 {isProfileOpen && (
                   <div className="profile-dropdown">
-                    <a href="/profile" className="dropdown-item">
+                    <Link 
+                      to="/profile" 
+                      className="dropdown-item"
+                      onClick={() => handleMenuClick('profile')}
+                    >
                       <i className="fas fa-user"></i>
                       <span>My Profile</span>
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <button
                       className="dropdown-item"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleLogout();
-                      }}
+                      onClick={handleLogout}
                     >
                       <i className="fas fa-sign-out-alt"></i>
                       <span>Logout</span>
-                    </a>
+                    </button>
                   </div>
                 )}
               </div>
             </div>
           ) : (
-            <button className="login-btn" onClick={() => setShowLogin(true)}>
+            <button 
+              className="login-btn" 
+              onClick={() => setShowLogin(true)}
+              aria-label="Login"
+            >
               <span>LOGIN</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,37 +138,72 @@ const Navbar = ({ user, setUser, setShowLogin }) => {
       <div className="nav-main">
         <div className="nav-container">
           <div className="nav-logo">
-            <span>
+            <Link to="/">
               <img
                 className="inter-logo"
                 src={internsevaLogo}
                 alt="InternSeva Logo"
               />
-            </span>
+            </Link>
           </div>
 
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             <div className="nav-links">
-              <a href="/" className="nav-link">Home</a>
-              <a href="/about" className="nav-link">About Us</a>
-              <a href="/internships" className="nav-link">Internships</a>
-              <a href="/feedback" className="nav-link" onClick={handleFeedbackClick}>Feedback</a>
-              <a href="/contact" className="nav-link">Contact Us</a>
-              <a 
-                href={user ? "/profile" : "#"} 
-                className="nav-link profile-link"
+              <Link 
+                to="/" 
+                className={`nav-link ${activeMenu === "home" ? "active" : ""}`} 
+                onClick={() => handleMenuClick('home')}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                className={`nav-link ${activeMenu === "about" ? "active" : ""}`}
+                onClick={() => setActiveMenu('about')}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/recommendation" 
+                className={`nav-link ${activeMenu === "recommendation" ? "active" : ""}`}
+                onClick={() => handleMenuClick('recommendation')}
+              >
+                Recommendation
+              </Link>
+              <Link 
+                to="/feedback" 
+                className={`nav-link ${activeMenu === "feedback" ? "active" : ""}`}
+                onClick={handleFeedbackClick}
+              >
+                Feedback
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`nav-link ${activeMenu === "contact" ? "active" : ""}`}
+                onClick={() => handleMenuClick('contact')}
+              >
+                Contact Us
+              </Link>
+              <Link 
+                to={user ? "/profile" : "#"} 
+                className={`nav-link profile-link ${activeMenu === "profile" ? "active" : ""}`}
                 onClick={handleProfileClick}
               >
                 <span>Profile</span>
-              </a>
+              </Link>
             </div>
           </div>
 
-          <div className="hamburger" onClick={toggleMenu}>
+          <button 
+            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
-          </div>
+          </button>
         </div>
       </div>
     </div>

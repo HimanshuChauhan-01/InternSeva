@@ -46,7 +46,7 @@ const InternshipSearch = () => {
             
             <button type="submit" className="search-button">
               Find Internships
-              <span className="icon">→</span>
+              <span className="icons">→</span>
             </button>
           </div>
         </form>

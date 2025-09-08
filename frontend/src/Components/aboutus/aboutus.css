@@ -15,7 +15,10 @@
   background: linear-gradient(135deg, #e8f5e8 0%, #d0ebd0 100%);
   z-index: -1;
 }
-
+.navs-link{
+  color: white;
+  text-decoration: none;
+}
 /* Main content band */
 .band {
   background: rgba(255, 255, 255, 0.95);

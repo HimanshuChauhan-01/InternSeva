@@ -9,6 +9,7 @@ import InternshipSearch from '../Components/FindUs/FindUs'
 import Marquee_page from '../Components/Marqueee/Marquee_page';
 import PastIntern from '../Components/Home/pastIntern';
 import InternSeva from '../Components/Home/home'
+import Chatbot from '../Components/chatbot/Chatbot'
 // import Navbar from '../Components/Navbar/Navbar';
 const Home = ({user}) => {
   const [showTodo, setShowTodo] = useState(false);
@@ -40,6 +41,7 @@ const Home = ({user}) => {
           onClose={closeTodo}
         />
       )}
+      <Chatbot />
     </div>
   );
 };
