@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Navbar.css';
+import './navbar.css';
 import defaultProfile from '/src/assets/profile-user.png';
 import indiaLogo from '/src/assets/india-digi.svg';
 import internsevaLogo from '/src/assets/InternSeva_Logo_2_SVG copy.svg';
