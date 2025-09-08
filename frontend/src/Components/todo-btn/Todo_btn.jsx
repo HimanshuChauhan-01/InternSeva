@@ -1,5 +1,6 @@
 import React from 'react';
 import './todo_btn.css';
+import todoIcon from '../../assets/To_do_SVG.svg';
 
 const Todo_btn = ({ onOpen }) => {
   return (
@@ -9,7 +10,7 @@ const Todo_btn = ({ onOpen }) => {
       onClick={onOpen}
       aria-label="Open To-Do"
     >
-      <img src="src\assets\To_do_SVG.svg" alt="todo" className="todo-icon-img" />
+      <img src={todoIcon} alt="todo" className="todo-icon-img" />
     </button>
   );
 };

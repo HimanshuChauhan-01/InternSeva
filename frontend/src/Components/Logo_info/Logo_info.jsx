@@ -16,6 +16,7 @@ const Logo_Info = ({ user }) => {
           <div className="logo-wrapper">
             <img 
               src='src\assets\Nav_illustration_1_SVG.svg' 
+              src='src\assets\Nav_illustration_1_SVG.svg' 
               alt="Profile Logo" 
               className="logo-svg"
             />

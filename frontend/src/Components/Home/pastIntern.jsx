@@ -1,6 +1,6 @@
 // PastIntern.jsx
 import React, { useState } from 'react';
-import './PastIntern.css';
+import './pastIntern.css';
 
 const PastIntern = () => {
   const [activeBranch, setActiveBranch] = useState('all');

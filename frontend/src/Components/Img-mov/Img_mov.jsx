@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Img_mov.css";
+import "./img_mov.css";
 
 const Img_mov = () => {
   const images = [

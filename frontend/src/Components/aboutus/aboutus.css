@@ -216,6 +216,9 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
 }
+.nav-link-contact{
+  color: white;
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
