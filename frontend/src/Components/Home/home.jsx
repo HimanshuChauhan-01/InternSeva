@@ -1,6 +1,6 @@
 // Home.jsx (updated)
 import React, { useState } from 'react';
-import './Home.css';
+import './home.css';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('students');
