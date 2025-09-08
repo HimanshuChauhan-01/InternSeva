@@ -168,7 +168,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0; /* reduced padding for slim look */
+  /* padding: 8px 0;  */
+  height: 91px;
 }
 
 .nav-logo {
@@ -232,9 +233,8 @@
 
 
 .inter-logo {
-  height: auto;
-  width: 100%;
-  max-width: 23rem; /* same as before for large screens */
+  height: 18rem;
+  width: 18rem;
   display: block;
 }
 
