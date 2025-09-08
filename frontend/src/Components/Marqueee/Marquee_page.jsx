@@ -2,7 +2,6 @@ import React from 'react';
 import Marquee from "react-fast-marquee";
 import './marquee.css';
 
-// ✅ Import images properly so Vite includes them in build
 import google from '../../assets/marquue/google.svg';
 import infosys from '../../assets/marquue/infosys.svg';
 import microsoft from '../../assets/marquue/microsoft.svg';
