@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Logo_Info.css';
+import './logo_info.css';
 import Profile_SVG from '../../assets/Profile_SVG.svg';  // <-- fixed path
 
 const Logo_Info = ({ user }) => {
