@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './logo_info.css';
-import Profile_SVG from '../../assets/Profile_SVG.svg';  // <-- fixed path
+// import Profile_SVG from '../assets/Nav_illustration_1_SVG.svg';  // <-- fixed path
 
 const Logo_Info = ({ user }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,7 +16,7 @@ const Logo_Info = ({ user }) => {
         <div className="logo-section">
           <div className="logo-wrapper">
             <img 
-              src={Profile_SVG} 
+              src='src\assets\Nav_illustration_1_SVG.svg' 
               alt="Profile Logo" 
               className="logo-svg"
             />

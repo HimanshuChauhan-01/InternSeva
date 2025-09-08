@@ -40,13 +40,18 @@
 }
 
 .logo-wrapper {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   padding: 15px;
   background: white;
   box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
   animation: float 6s ease-in-out infinite;
+  height: 20rem;
+  width: 20rem;
 }
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -54,8 +59,8 @@
 }
 
 .logo-svg {
-  width: 120px;
-  height: 120px;
+  width: 22rem;
+  height: 22rem;
   object-fit: contain;
   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
