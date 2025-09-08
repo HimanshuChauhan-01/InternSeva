@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
-import voxen from '../assets/Ask_Voxen_SVG.svg'
+import voxen from '../../assets/Ask_Voxen_SVG.svg'
 
 const InternshipChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
