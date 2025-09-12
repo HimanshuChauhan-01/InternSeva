@@ -22,7 +22,7 @@ const Sugg_card = () => {
                         Learn Python fundamentals, AI concepts, and real-world projects 
                         designed to boost your career.
                     </p>
-                    <a href="">Know More →</a>
+                    <a href="" onClick={(e) => e.preventDefault()}>Know More →</a>
                 </div>
             </div>
 
@@ -38,7 +38,7 @@ const Sugg_card = () => {
                         Work on ML models, neural networks, and hands-on AI solutions 
                         with expert guidance.
                     </p>
-                    <a href="">Know More →</a>
+                    <a href="" onClick={(e) => e.preventDefault()}>Know More →</a>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@ const Sugg_card = () => {
                         Build creative websites and design modern UI/UX layouts 
                         for real-time projects.
                     </p>
-                    <a href="">Know More →</a>
+                    <a href="" onClick={(e) => e.preventDefault()}>Know More →</a>
                 </div>
             </div>
         </div>
