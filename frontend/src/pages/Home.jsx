@@ -10,6 +10,7 @@ import Marquee_page from '../Components/Marqueee/Marquee_page';
 import PastIntern from '../Components/Home/pastIntern';
 import InternSeva from '../Components/Home/home'
 import Chatbot from '../Components/chatbot/Chatbot'
+import Sugg_card from '../Components/suggestion card/Sugg_card';
 // import Navbar from '../Components/Navbar/Navbar';
 const Home = ({user}) => {
   const [showTodo, setShowTodo] = useState(false);
@@ -26,6 +27,7 @@ const Home = ({user}) => {
       <InternshipSearch/>
       <InternSeva></InternSeva>
       <PastIntern></PastIntern>
+      <Sugg_card></Sugg_card>
       <Marquee_page />
       {/* <Contact /> */}
       <Last />

@@ -1,0 +1,155 @@
+/* Main container */
+.sugg-container {
+    height: 35rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e8f5e9, #f1fff1);
+    gap: 4rem;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* Map animation */
+.sugg-map img {
+    height: 37rem;
+    width: 38rem;
+    animation: fadeInLeft 1.2s ease-out forwards;
+}
+
+/* Cards wrapper */
+.sugg-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-right: 2rem;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Card box */
+.card-box {
+    border: 2px solid rgb(93, 225, 84);
+    height: 330px;
+    width: 250px;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover animation */
+.card-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    border-color: #4caf50;
+}
+
+/* Card images */
+.card-img,
+.card-img-ai,
+.card-img-web {
+    height: 10rem;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #c5e1a5;
+}
+
+.card-img img,
+.card-img-ai img,
+.card-img-web img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    transition: transform 0.5s ease;
+}
+
+.card-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Card content */
+.card-content {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* Duration text */
+.card-content .duration {
+    font-size: 0.9rem;
+    color: #388e3c;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+/* Title */
+.card-content h2 {
+    font-size: 1.3rem;
+    color: #1b5e20;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s;
+}
+
+.card-box:hover h2 {
+    color: #2e7d32;
+}
+
+/* Description */
+.card-content .desc {
+    font-size: 0.85rem;
+    line-height: 1.4rem;
+    color: #4e4e4e;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* Link */
+.card-content a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.card-content a:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
